@@ -4,7 +4,13 @@ Easily block all communication with a given IP address or network
 
 ## Installation
 
-The script will create the necessary chain and rules on the first run without breaking any existing rules.
+There are no installation steps you will need to perform.
+On the first run, the script will do the following automatically. Existing rules should not be affected.
+
+1) The `blocks` chain is created
+2) A `RETURN` rule is added to the end of the `blocks` chain
+3) A jump to the `blocks` chain is inserted at the first position in the `PREROUTING` chain
+4) Blocked IP address/network is added to the `blocks` chain before the `RETURN` rule
 
 ## Usage
 
@@ -40,11 +46,6 @@ num   pkts bytes target     prot opt in     out     source               destina
 ```
 
 ## After First Run
-
-1) The `blocks` chain is created
-2) A `RETURN` rule is added to the end of the `blocks` chain
-3) A jump to the `blocks` chain is inserted at the first position in the `PREROUTING` chain
-4) Blocked IP address/network is added to the `blocks` chain before the `RETURN` rule
 
 ```
 $ iptables -t raw -L -v -n --line-numbers
