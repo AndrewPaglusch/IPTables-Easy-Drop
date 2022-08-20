@@ -3,8 +3,8 @@
 #Sanity check on arguments
 if [ $# -ne 1 ]; then
 	echo "Invalid arguments!"
-	echo "USAGE: ./block.sh 1.2.3.4"
-	echo "       ./block.sh 1.2.0.0/16"
+	echo "USAGE: ./drop.sh 1.2.3.4"
+	echo "       ./drop.sh 1.2.0.0/16"
 	exit 1
 fi
 
